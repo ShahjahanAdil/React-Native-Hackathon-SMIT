@@ -79,6 +79,7 @@ export default function LoginScreen() {
                 <View style={styles.authContainer}>
                     <View>
                         <Text style={{ color: '#0C82BD', textAlign: 'center', fontSize: 25, fontWeight: 600, marginBottom: 5 }}>LOGIN</Text>
+                        <Text style={{ color: '#888', fontWeight: 500, paddingBottom: 8, textAlign: 'center' }}>Welcom back!</Text>
                         <Text style={{ color: '#666', fontWeight: 500, paddingTop: 10, paddingBottom: 8 }}>Email:</Text>
                         <TextInput style={styles.authInput} placeholder="Enter your email" placeholderTextColor="#e7e7e7" cursorColor="#0C82BD" onChangeText={val => handleChange("email", val)} />
                         <Text style={{ color: '#666', fontWeight: 500, paddingTop: 10, paddingBottom: 8 }}>Password:</Text>

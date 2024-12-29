@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native'
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
-import FAIcon from 'react-native-vector-icons/dist/FontAwesome';
-import ADIcon from 'react-native-vector-icons/dist/AntDesign';
 import Animated, { SlideInDown, SlideOutLeft } from 'react-native-reanimated';
 import { useFocusEffect } from '@react-navigation/native';
+import UpcomingEvents from '../../components/UpcomingEvents/UpcomingEvents';
+import RescentEvents from '../../components/RescentEvents/RescentEvents';
 
 export default function HomeScreen() {
 
@@ -26,40 +26,40 @@ export default function HomeScreen() {
                         exiting={SlideOutLeft}
                         style={{ flex: 1 }}
                     >
+                        <View style={styles.homeTop}>
+                            <Image source={require('../../assets/images/event-home-pic.jpg')} style={styles.homeTopImg} />
+                            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 20 }}>
+                                <Text style={styles.homeTopText}>VISME EVENTS MANAGER</Text>
+                                <FeatherIcon name='check-square' size={75} color={'#fff'} />
+                            </View>
+                        </View>
+
                         <View style={styles.pageHeight}>
-                            <View style={styles.homeTop}>
-                                <Text style={styles.homeText}>Create Todos with us and manage your work smartly</Text>
-                                <FeatherIcon name='check-square' size={60} color={'#fff'} />
-                            </View>
-
                             <View>
-                                <View style={styles.createManageContainer}>
-                                    <View style={styles.createBox}>
-                                        <Text style={styles.todoBoxText}>Create</Text>
-                                        <View style={styles.todoBoxViewFlex}>
-                                            <Text style={{ color: '#fff', flex: 1 }}>Create your todo work and save it</Text>
-                                            <FAIcon name='plus-square-o' size={30} color={'#efefef'} />
-                                        </View>
+                                <Text style={{ color: '#666', fontSize: 20, fontWeight: 600, marginLeft: 8, marginBottom: 15, marginTop: 10 }}>Our Services:</Text>
+                            </View>
+
+                            <View style={styles.eventsContainer}>
+                                <View style={{ flexDirection: 'row', gap: 10 }}>
+                                    <View style={{ flex: 1, height: 220, borderRadius: 10, elevation: 5 }}>
+                                        <Image source={require('../../assets/images/music-event.webp')} style={styles.eventBoxImg} />
                                     </View>
-                                    <View style={styles.manageBox}>
-                                        <Text style={styles.todoBoxText}>Manage</Text>
-                                        <View style={styles.todoBoxViewFlex}>
-                                            <Text style={{ color: '#fff', flex: 1 }}>Update the todo according to your progress</Text>
-                                            <FeatherIcon name='edit' size={30} color={'#efefef'} />
-                                        </View>
+                                    <View style={{ flex: 1, height: 220, borderRadius: 10, elevation: 5 }}>
+                                        <Image source={require('../../assets/images/sport-event.webp')} style={styles.eventBoxImg} />
                                     </View>
                                 </View>
-
-                                <View>
-                                    <View style={styles.deleteBox}>
-                                        <Text style={styles.todoBoxText}>Delete</Text>
-                                        <View style={styles.todoBoxViewFlex}>
-                                            <Text style={{ color: '#fff', flex: 1 }}>Remove todo that you have done</Text>
-                                            <ADIcon name='delete' size={30} color={'#efefef'} />
-                                        </View>
-                                    </View>
+                                <View style={{ flex: 1, height: 220, borderRadius: 10, elevation: 5 }}>
+                                    <Image source={require('../../assets/images/tech-event.webp')} style={styles.eventBoxImg} />
                                 </View>
                             </View>
+
+                            <>
+                                <UpcomingEvents />
+                            </>
+
+                            <>
+                                <RescentEvents />
+                            </>
                         </View>
                     </Animated.View>
                 }
@@ -75,58 +75,35 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 10
     },
+    homeTopImg: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+    },
     homeTop: {
+        position: 'relative',
         width: '100%',
+        minHeight: 180,
         backgroundColor: '#0c82bd',
-        padding: 10,
-        borderRadius: 8,
-        elevation: 6,
-        flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 15
+        elevation: 10,
     },
-    homeText: {
+    homeTopText: {
         color: '#fff',
         flex: 1,
-        fontWeight: 600
-    },
-    createManageContainer: {
-        flexDirection: 'row',
-        gap: 10,
-        marginBottom: 10
-    },
-    createBox: {
-        flex: 1,
-        minHeight: 120,
-        backgroundColor: '#09de81',
-        padding: 10,
-        borderRadius: 8,
-        elevation: 5
-    },
-    manageBox: {
-        flex: 1,
-        minHeight: 120,
-        backgroundColor: '#00b1de',
-        padding: 10,
-        borderRadius: 8,
-        elevation: 5
-    },
-    deleteBox: {
-        width: '100%',
-        minHeight: 120,
-        backgroundColor: '#ff5454',
-        padding: 10,
-        borderRadius: 8,
-        elevation: 5
-    },
-    todoBoxText: {
-        color: '#fff',
         fontWeight: 600,
-        fontSize: 16,
-        marginBottom: 4
+        fontSize: 40,
     },
-    todoBoxViewFlex: {
-        flexDirection: 'row'
+    eventsContainer: {
+        backgroundColor: '#f4f5fa',
+        padding: 12,
+        borderRadius: 10,
+        gap: 10,
+        elevation: 5
+    },
+    eventBoxImg: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 10
     }
 })

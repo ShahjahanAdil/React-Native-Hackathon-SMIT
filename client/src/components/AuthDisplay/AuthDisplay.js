@@ -1,5 +1,5 @@
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 export default function AuthDisplay() {
@@ -11,7 +11,7 @@ export default function AuthDisplay() {
             <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <View style={styles.pageHeight}>
                     <Text style={{ color: '#666' }}>You don't have joined us yet</Text>
-                    <Text style={{ color: '#666' }}>Join us now</Text>
+                    <Text style={{ color: '#666' }}>Join us now for better experience</Text>
                     <View>
                         <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
                             <Text style={{ color: '#0C82BD' }}>Login</Text>
